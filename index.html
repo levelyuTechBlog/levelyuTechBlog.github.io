@@ -83,8 +83,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##Vultr VPS centOS7 重置root密码</p>
-<p>说起来好笑，由于自己强迫症的原因，看到每天都有人通过ssh攻击远程VPS服务器，决定更改ssh端口，提升安全性。<br>由于设置不完善，防火墙没有开启对应新增端口加之关闭了22端口，反而导致自己远程连接都失败了（笑哭）。最后<br>通过vultr的在线console把自己修改的设置还原，顺便重置了root密码，默认的密码又臭又长哈哈哈</p>
+        <h2 id="Vultr-VPS-centOS7-重置root密码"><a href="#Vultr-VPS-centOS7-重置root密码" class="headerlink" title="Vultr VPS centOS7 重置root密码"></a>Vultr VPS centOS7 重置root密码</h2><p>说起来好笑，由于自己强迫症的原因，看到每天都有人通过ssh攻击远程VPS服务器，决定更改ssh端口，提升安全性。<br>由于设置不完善，防火墙没有开启对应新增端口加之关闭了22端口，反而导致自己远程连接都失败了（笑哭）。最后<br>通过vultr的在线console把自己修改的设置还原，顺便重置了root密码，默认的密码又臭又长哈哈哈</p>
 <ul>
 <li><p>主要实现步骤</p>
 <p>1 .登录Vultr后台<br>2 .点击vultr后台面板View Console按钮，点击组合键ctrl+alt+del重启vps<br>3 .在选择启动系统界面选择当前系统，按E进入gurb菜单界面<br>4 .找到grub菜单里的内核kernel一行，通常以”linux /boot/”开头，结尾添加 init=”/bin/bash”<br>5 .按CTRL-X或F10重启<br>6 .输入mount -o remount,rw / 接着输入 “passwd”修改新的密码</p>
