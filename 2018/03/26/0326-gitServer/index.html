@@ -142,30 +142,15 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(/images/self_intro.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >自我简介</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(/images/post0326.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Linux下git服务器搭建</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="Intrudce-Myself"><a href="#Intrudce-Myself" class="headerlink" title="Intrudce Myself"></a>Intrudce Myself</h2><p>入门半年的自动化测试工程师，目前主攻基于selenium的python web自动化脚本开发，热爱各种新奇技术，以测试开发为目标不断充实自己。</p>
-<h3 id="Relative-Social-Accont"><a href="#Relative-Social-Accont" class="headerlink" title="Relative Social Accont"></a>Relative Social Accont</h3><p>facebook: aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3l1LmxldmVsLjU=<br>twitter:    aHR0cHM6Ly90d2l0dGVyLmNvbS9sZXZlbHl1MQ==<br>weibo:      aHR0cDovL3dlaWJvLmNvbS93YmxldmVseXU=</p>
-<ul>
-<li>Self Expection<br>除去UI自动化方面的技术提升，希望能在python开发领域有比较明显的提升，针对主流测试工具（接口，性能，安全）必须有所涉及及使用经验</li>
-</ul>
-<ul>
-<li>数据库<ul>
-<li>MySql,SQL Server 以及postgre在宏观层面了解其异同之处<ul>
-<li>左右查询，多表查询，索引，事务，概念及应用必须达到熟练程度</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Recent Schedule</p>
-<p>1 .完善技术博客搭建<br>2 .记录git服务器搭建，及个人VPN搭建过程</p>
-</li>
-</ul>
+                <h2 id="git服务器环境"><a href="#git服务器环境" class="headerlink" title="git服务器环境"></a>git服务器环境</h2><p>服务器 CentOS7 + git（version 1.8.3.1）<br>客户端 Windows10 + git（version 2.16.0.windows.2）</p>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>Linux 做为服务器端系统，Windows 作为客户端系统，分别安装 Git<br>服务器端：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#yum install -y git</span></span><br></pre></td></tr></table></figure></p>
+<p>安装结束后，查看Git版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># git --version</span></span><br><span class="line">git version 1.8.3.1</span><br></pre></td></tr></table></figure></p>
+<p>客户端：<br>下载 Git for Windows，地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">https://git-for-windows.github.io/</a><br>安装完之后，可以使用 Git Bash 作为命令行客户端。<br>安装完之后，查看 Git 版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br><span class="line">git version 2.16.0.windows.2</span><br></pre></td></tr></table></figure></p>
 
             </div>
 
@@ -228,8 +213,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/03/23/test-post-blog/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2018/03/23/test-post-blog/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/03/26/0326-gitServer/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/26/0326-gitServer/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
