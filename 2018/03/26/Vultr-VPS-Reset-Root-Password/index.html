@@ -5,18 +5,19 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>Vultr VPS Reset Root Password | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="##Vultr VPS centOS7 重置root密码 说起来好笑，由于自己强迫症的原因，看到每天都有人通过ssh攻击远程VPS服务器，决定更改ssh端口，提升安全性。由于设置不完善，防火墙没有开启对应新增端口加之关闭了22端口，反而导致自己远程连接都失败了（笑哭）。最后通过vultr的在线console把自己修改的设置还原，顺便重置了root密码，默认的密码又臭又长哈哈哈  主要实现步骤 1">
+<meta name="keywords" content="Vultr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/03/23/hello-world/index.html">
+<meta property="og:title" content="Vultr VPS Reset Root Password">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/Vultr-VPS-Reset-Root-Password/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2018-03-23T02:18:17.330Z">
+<meta property="og:description" content="##Vultr VPS centOS7 重置root密码 说起来好笑，由于自己强迫症的原因，看到每天都有人通过ssh攻击远程VPS服务器，决定更改ssh端口，提升安全性。由于设置不完善，防火墙没有开启对应新增端口加之关闭了22端口，反而导致自己远程连接都失败了（笑哭）。最后通过vultr的在线console把自己修改的设置还原，顺便重置了root密码，默认的密码又臭又长哈哈哈  主要实现步骤 1">
+<meta property="og:updated_time" content="2018-03-26T07:33:01.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Vultr VPS Reset Root Password">
+<meta name="twitter:description" content="##Vultr VPS centOS7 重置root密码 说起来好笑，由于自己强迫症的原因，看到每天都有人通过ssh攻击远程VPS服务器，决定更改ssh端口，提升安全性。由于设置不完善，防火墙没有开启对应新增端口加之关闭了22端口，反而导致自己远程连接都失败了（笑哭）。最后通过vultr的在线console把自己修改的设置还原，顺便重置了root密码，默认的密码又臭又长哈哈哈  主要实现步骤 1">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -63,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Vultr-VPS-Reset-Root-Password" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/23/hello-world/" class="article-date">
-  <time datetime="2018-03-23T02:18:17.329Z" itemprop="datePublished">2018-03-23</time>
+    <a href="/2018/03/26/Vultr-VPS-Reset-Root-Password/" class="article-date">
+  <time datetime="2018-03-26T07:22:58.000Z" itemprop="datePublished">2018-03-26</time>
 </a>
     
   </div>
@@ -77,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Vultr VPS Reset Root Password
     </h1>
   
 
@@ -85,37 +86,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>##Vultr VPS centOS7 重置root密码</p>
+<p>说起来好笑，由于自己强迫症的原因，看到每天都有人通过ssh攻击远程VPS服务器，决定更改ssh端口，提升安全性。<br>由于设置不完善，防火墙没有开启对应新增端口加之关闭了22端口，反而导致自己远程连接都失败了（笑哭）。最后<br>通过vultr的在线console把自己修改的设置还原，顺便重置了root密码，默认的密码又臭又长哈哈哈</p>
+<ul>
+<li><p>主要实现步骤</p>
+<p>1 .登录Vultr后台<br>2 .点击vultr后台面板View Console按钮，点击组合键ctrl+alt+del重启vps<br>3 .在选择启动系统界面选择当前系统，按E进入gurb菜单界面<br>4 .找到grub菜单里的内核kernel一行，通常以”linux /boot/”开头，结尾添加 init=”/bin/bash”<br>5 .按CTRL-X或F10重启<br>6 .输入mount -o remount,rw / 接着输入 “passwd”修改新的密码</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/hello-world/" data-id="cjf7x1n2l0003og4pa4cbd8wj" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/26/Vultr-VPS-Reset-Root-Password/" data-id="cjf7x1n2a0000og4psb5xw9y9" class="article-share-link">Teilen</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vultr/">Vultr</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/03/23/test-post-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          FirstBlog:self-introduce
-        
-      </div>
-    </a>
   
+    <a href="/2018/03/23/test-post-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">FirstBlog:self-introduce</div>
+    </a>
   
 </nav>
 
