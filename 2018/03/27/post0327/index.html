@@ -148,10 +148,11 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>##关闭root登录<br>配置环境：CentOS7 x64<br>linux服务器安装ssh远程登录后，为了安全起见，修改默认的22端口号并禁止root用户直接通过ssh登录。</p>
+                <h2 id="关闭root登录"><a href="#关闭root登录" class="headerlink" title="关闭root登录"></a>关闭root登录</h2><p>配置环境：CentOS7 x64<br>linux服务器安装ssh远程登录后，为了安全起见，修改默认的22端口号并禁止root用户直接通过ssh登录。</p>
 <ul>
-<li>配置方法如下：<br><em>注意</em>：这里必须要新建一个用户，否则将会造成无法通过远程ssh登录服务器<br>1 .创建普通权限用户：</li>
+<li>配置方法如下：<br><em>注意</em>：这里必须要新建一个用户，否则将会造成无法通过远程ssh登录服务器</li>
 </ul>
+<p>1 .创建普通权限用户：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># useradd test</span>
 <span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># passwd test</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -166,26 +167,33 @@
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl restart sshd.service </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>配置成功后下次登录服务器只可使用新增的普通用户进行登录，若操作需要使用root权限则可通过su root 切换至root用户后继续执行相应操作</p>
-<p>##修改ssh默认端口<br><em>注意</em>：在修改端口的同时须注意防火墙是否已经开启对应端口，否则会造成修改配置后无法访问服务器的情况</p>
+<h2 id="修改ssh默认端口"><a href="#修改ssh默认端口" class="headerlink" title="修改ssh默认端口"></a>修改ssh默认端口</h2><p><em>注意</em>：在修改端口的同时须注意防火墙是否已经开启对应端口，否则会造成修改配置后无法访问服务器的情况</p>
 <ul>
-<li>主要步骤如下<br>1 .使用vi编辑器打开ssh配置文件 /etc/ssh/sshd_config<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vi /etc/ssh/sshd_config  </span>
+<li>主要步骤如下：</li>
+</ul>
+<p>1 .使用vi编辑器打开ssh配置文件 /etc/ssh/sshd_config</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vi /etc/ssh/sshd_config  </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-2 .修改ssh默认端口<br>Port 22 这一行默认是注释的(大约在13行处)，取消注释或者添加一行 Port 新端口号，如配置新端口号为9999：<pre class="line-numbers language-bash"><code class="language-bash">Port 22  
+<p>2 .修改ssh默认端口<br>Port 22 这一行默认是注释的(大约在13行处)，取消注释或者添加一行 Port 新端口号，如配置新端口号为9999：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">Port 22  
 Port 9999  
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-首次配置建议将Port 22前的注释也取消，待配置的指定端口生效后在注释掉对应22端口的配置以保证在整体配置过程中都可以正常连接服务器<br>3 .重载防火墙策略，并检查防火墙是否开放对应端口<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --reload </span>
+<p>首次配置建议将Port 22前的注释也取消，待配置的指定端口生效后在注释掉对应22端口的配置以保证在整体配置过程中都可以正常连接服务器<br>3 .重载防火墙策略，并检查防火墙是否开放对应端口</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --reload </span>
 <span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --zone=public --list-ports</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-若配置的ssh端口不在其中，则需要手动添加该端口<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --permanent--add-port=9999/tcp   </span>
+<p>若配置的ssh端口不在其中，则需要手动添加该端口</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --permanent--add-port=9999/tcp   </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-打印结果如下：<br>success<br>重载防火墙策略后，检查指定端口是否已开启：<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --permanent--query-port=9999/tcp   </span>
+<p>打印结果如下：<br>success<br>重载防火墙策略后，检查指定端口是否已开启：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --permanent--query-port=9999/tcp   </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-打印结果如下：<br>yes<br>4 .重启sshd服务及防火墙策略使配置生效,最好重启一下服务器<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl restart sshd.service  </span>
+<p>打印结果如下：<br>yes<br>4 .重启sshd服务及防火墙策略使配置生效,最好重启一下服务器</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl restart sshd.service  </span>
 <span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># firewall-cmd --reload</span>
 <span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># shutdown -r now  </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-5 .尝试使用ssh连接通过刚配置的端口连接服务器<br>若连接成功则表示配置成功，可修改sshd_config文件中默认端口配置项，将其注释。</li>
-</ul>
+<p>5 .尝试使用ssh连接通过刚配置的端口连接服务器<br>若连接成功则表示配置成功，可修改sshd_config文件中默认端口配置项，将其注释。<br>至此，已完成基础VPS安全配置，可避免较常见的针对服务区进行端口扫描暴力登录的行为。</p>
 
             </div>
 
