@@ -148,9 +148,8 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="VPS服务器安基础全配置"><a href="#VPS服务器安基础全配置" class="headerlink" title="VPS服务器安基础全配置"></a>VPS服务器安基础全配置</h2><pre><code>在租用外部服务器后，查看登录日志时你会发现，总有人在不断尝试登录你的服务器。原因是ssh默认通信端口为22，所以黑客们会通过扫描端口，以root用户身份不断尝试登录，利用算法模拟各种密码进行暴力登录。
-为了保障服务器的安全性，最基础的做法就是修改默认的22端口号并禁止root用户直接通过ssh登录。
-</code></pre><h3 id="一、关闭root登录"><a href="#一、关闭root登录" class="headerlink" title="一、关闭root登录"></a>一、关闭root登录</h3><p>配置环境：CentOS7 x64</p>
+                <h2 id="VPS服务器安基础全配置"><a href="#VPS服务器安基础全配置" class="headerlink" title="VPS服务器安基础全配置"></a>VPS服务器安基础全配置</h2><p>在租用外部服务器后，查看登录日志时你会发现，总有人在不断尝试登录你的服务器。原因是ssh默认通信端口为22，所以黑客们会通过扫描端口，以root用户身份不断尝试登录，利用算法模拟各种密码进行暴力登录。<br>为了保障服务器的安全性，最基础的做法就是修改默认的22端口号并禁止root用户直接通过ssh登录。</p>
+<h3 id="一、关闭root登录"><a href="#一、关闭root登录" class="headerlink" title="一、关闭root登录"></a>一、关闭root登录</h3><p>配置环境：CentOS7 x64</p>
 <h4 id="配置方法如下："><a href="#配置方法如下：" class="headerlink" title="配置方法如下："></a>配置方法如下：</h4><p><strong>注意</strong>：这里必须要新建一个用户，否则将会造成无法通过远程ssh登录服务器</p>
 <p>1 .创建普通权限用户：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># useradd test</span>
