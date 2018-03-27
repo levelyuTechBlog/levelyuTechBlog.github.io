@@ -150,7 +150,7 @@
             <div class="typo" style="padding: 3rem;">
                 <h2 id="VPS服务器安基础全配置"><a href="#VPS服务器安基础全配置" class="headerlink" title="VPS服务器安基础全配置"></a>VPS服务器安基础全配置</h2><p>在租用外部服务器后，查看登录日志时你会发现，总有人在不断尝试登录你的服务器。原因是ssh默认通信端口为22，所以黑客们会通过扫描端口，已root用户身份不断尝试登录，利用算法模拟各种密码进行暴力登录。<br>为了保障服务器的安全性，最基础的做法就是修改默认的22端口号并禁止root用户直接通过ssh登录。</p>
 <h3 id="关闭root登录"><a href="#关闭root登录" class="headerlink" title="关闭root登录"></a>关闭root登录</h3><p>配置环境：CentOS7 x64</p>
-<p>####配置方法如下：<br><strong>注意</strong>：这里必须要新建一个用户，否则将会造成无法通过远程ssh登录服务器</p>
+<h4 id="配置方法如下："><a href="#配置方法如下：" class="headerlink" title="配置方法如下："></a>配置方法如下：</h4><p><strong>注意</strong>：这里必须要新建一个用户，否则将会造成无法通过远程ssh登录服务器</p>
 <p>1 .创建普通权限用户：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># useradd test</span>
 <span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># passwd test</span>
@@ -167,8 +167,7 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>配置成功后下次登录服务器只可使用新增的普通用户进行登录，若操作需要使用root权限则可通过su root 切换至root用户后继续执行相应操作</p>
 <h3 id="修改ssh默认端口"><a href="#修改ssh默认端口" class="headerlink" title="修改ssh默认端口"></a>修改ssh默认端口</h3><p><strong>注意</strong>：在修改端口的同时须注意防火墙是否已经开启对应端口，否则会造成修改配置后无法访问服务器的情况</p>
-<p>####主要步骤如下：</p>
-<p>1 .使用vi编辑器打开ssh配置文件 /etc/ssh/sshd_config</p>
+<h4 id="主要步骤如下："><a href="#主要步骤如下：" class="headerlink" title="主要步骤如下："></a>主要步骤如下：</h4><p>1 .使用vi编辑器打开ssh配置文件 /etc/ssh/sshd_config</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vi /etc/ssh/sshd_config  </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2 .修改ssh默认端口<br>Port 22 这一行默认是注释的(大约在13行处)，取消注释或者添加一行 Port 新端口号，如配置新端口号为9999：</p>
